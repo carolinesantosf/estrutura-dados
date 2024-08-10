@@ -1,0 +1,29 @@
+// Classe que representa um nó da árvore binária
+class Node(val value: Int) {
+    var left: Node? = null
+    var right: Node? = null
+}
+
+// Função para percorrer a árvore em pré-ordem (pre-order traversal)
+fun preOrderTraversal(root: Node?) {
+    if (root != null) {
+        print("${root.value} ")
+        preOrderTraversal(root.left)
+        preOrderTraversal(root.right)
+    }
+}
+
+fun main() {
+    // Criando uma árvore binária
+    val root = Node(1)
+    root.left = Node(2)
+    root.right = Node(3)
+    root.left?.left = Node(4)
+    root.left?.right = Node(5)
+    root.right?.left = Node(6)
+    root.right?.right = Node(7)
+
+    // Percorrendo a árvore
+    println("Percorrendo a árvore em pré-ordem:")
+    preOrderTraversal(root)
+}
